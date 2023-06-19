@@ -1,7 +1,6 @@
 import axios from 'axios';
 import Navbar from '../src/components/navbar'
 import Table from './components/Table'
-import Tablebottom from './components/Tablebottom'
 import { useState, useEffect } from 'react';
 
 

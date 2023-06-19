@@ -1,8 +1,5 @@
 import React from 'react'
 import { IState } from "../App";
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-
 
 interface Props {
    country : IState["people"]
@@ -14,12 +11,9 @@ interface Props {
 }
 
 const Tabletop: React.FC<Props> = ({
-country, 
 setCountry, 
-loading,
 setCurrentPage,
 data,
-setData
 }) => {
     data = [...data]
     const sortA = () => {

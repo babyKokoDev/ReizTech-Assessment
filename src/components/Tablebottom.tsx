@@ -12,9 +12,6 @@ interface Props {
 }
 
 const Tablebottom: React.FC<Props> = ({
-    country,
-    setCountry,
-    loading,
     nPages,
     currentPage,
     setCurrentPage

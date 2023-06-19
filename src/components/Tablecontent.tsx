@@ -11,15 +11,13 @@ interface Props {
 }
 
 const Tablecontent: React.FC<Props> = ({
-    country, 
-    setCountry, 
     loading,
     currentRecords
    }) => {
 
     if (loading) {
         return (
-            <div role="status" className="w-[95%] mx-auto px-4 py-2 space-y-2   divide-y divide-gray-200 rounded shadow animate-pulse dark:divide-gray-700 ">    
+            <div role="status" className="w-[95%] mx-auto px-4 py-2 space-y-2   divide-y divide-gray-200 rounded shadow border border-gray-700 animate-pulse dark:divide-gray-700 ">    
            <Pageloading />
             </div>
         )

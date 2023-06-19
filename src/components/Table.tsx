@@ -50,8 +50,7 @@ const Table : React.FC<Props> = ({
                nPages={nPages}
                currentPage={currentPage}
                setCurrentPage={setCurrentPage}
-               />
-              
+               />    
         </div>
     )
 }
