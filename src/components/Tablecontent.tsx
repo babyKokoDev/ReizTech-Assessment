@@ -16,6 +16,7 @@ const Tablecontent: React.FC<Props> = ({
     loading,
     currentRecords
    }) => {
+
     if (loading) {
         return (
             <div role="status" className="w-[95%] mx-auto px-4 py-2 space-y-2   divide-y divide-gray-200 rounded shadow animate-pulse dark:divide-gray-700 ">    
@@ -44,7 +45,7 @@ const Tablecontent: React.FC<Props> = ({
         </thead>
         <tbody>
             {
-                 currentRecords.map((record, index) =>(
+                 currentRecords ? currentRecords.map((record, index) =>(
                     <tr key={index} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" className="px-6 py-[9px] font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {record.name}
@@ -53,10 +54,10 @@ const Tablecontent: React.FC<Props> = ({
                     {record.region}
                 </td>
                 <td className="px-6 py-[9px]">
-                    {record.area.toLocaleString()}
+                    {record.area ? record.area.toLocaleString() : ''}
                 </td>
             </tr>
-                 ))
+                 )) : ''
             }     
         </tbody>
     </table>

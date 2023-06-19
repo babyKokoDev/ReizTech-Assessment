@@ -12,6 +12,8 @@ interface Props {
    nPages : number
    currentPage : number
    setCurrentPage : (value : number) => void
+   data : IState["people"]
+   setData :  React.Dispatch<React.SetStateAction<IState["people"]>>;
 }
 
 const Table : React.FC<Props> = ({
@@ -21,7 +23,9 @@ const Table : React.FC<Props> = ({
     currentRecords,
     nPages,
     currentPage,
-    setCurrentPage
+    setCurrentPage,
+    data,
+    setData
     }) => {
     return (
         <div className='text-white w-3/5 h-[550px] mx-auto border-solid border-gray-600 border-[1px] rounded-xl flex flex-col justify-between'>
@@ -30,6 +34,8 @@ const Table : React.FC<Props> = ({
                setCountry = {setCountry} 
                loading = {loading}
                setCurrentPage={setCurrentPage}
+               data = {data}
+               setData={setData}
                />
                <Tablecontent 
                country = {country} 
