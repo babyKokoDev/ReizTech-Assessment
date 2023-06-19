@@ -8,25 +8,19 @@ interface Props {
    country : IState["people"]
    setCountry :  React.Dispatch<React.SetStateAction<IState["people"]>>;
    loading : boolean
+   setCurrentPage: (value: number) => void
 }
 
 const Tabletop: React.FC<Props> = ({
 country, 
 setCountry, 
 loading,
+setCurrentPage
 }) => {
-  const [data, setData] = useState<IState["people"]>([])
-  const endpoint = 'https://restcountries.com/v2/all?fields=name,region,area'
-  
-  useEffect(() => {
-    axios.get(endpoint).then((response) =>{
-        setData(response.data)
-    }).catch(() => {
-     alert('There was an error while retrieving the data')
- })
-}, [])
+    let data = [...country]
     const sortA = () => {
-       const newCountry = data.sort((a, b)=> {
+      let newCountry = [...data]
+      newCountry = data.sort((a, b)=> {
         if (b.name < a.name) {
           return 1;
         }
@@ -38,9 +32,11 @@ loading,
         return 0;
        })
             setCountry(newCountry)
+            setCurrentPage(1)
     }
     const sortB = () => {
-      const newCountry = data.sort((a, b)=> {
+      let newCountry = [...data]
+      newCountry = data.sort((a, b)=> {
        if (b.name < a.name) {
          return -1;
        }
@@ -52,6 +48,7 @@ loading,
        return 0;
       })
            setCountry(newCountry)
+           setCurrentPage(1)
    }
      
     return (

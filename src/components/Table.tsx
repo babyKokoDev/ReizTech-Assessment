@@ -29,6 +29,7 @@ const Table : React.FC<Props> = ({
                country = {country} 
                setCountry = {setCountry} 
                loading = {loading}
+               setCurrentPage={setCurrentPage}
                />
                <Tablecontent 
                country = {country} 
