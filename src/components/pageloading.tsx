@@ -1,10 +1,9 @@
-import React from 'react'
 
 interface Props {
    
 }
 
-const pageloading = (props: Props) => {
+const pageloading = ({}: Props) => {
     return (
         <>
             <div className="flex items-center justify-between">
