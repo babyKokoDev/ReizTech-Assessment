@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { IState } from "../App";
 
 interface Props {
@@ -16,6 +16,8 @@ setCurrentPage,
 data,
 }) => {
     data = [...data]
+
+    const [condition, setCondition] = useState<string>("asc")
     const sortA = () => {
       let newCountry = [...data]
       newCountry = data.sort((a, b)=> {
@@ -23,6 +25,7 @@ data,
        })
             setCountry(newCountry)
             setCurrentPage(1)
+            setCondition('asc')
     }
     const sortB = () => {
       let newCountry = [...data]
@@ -31,6 +34,7 @@ data,
       })
            setCountry(newCountry)
            setCurrentPage(1)
+           setCondition('desc')
    }
 
    const smallerThanLit = () => {
@@ -42,6 +46,7 @@ data,
     })
      setCountry(newCountry)
      setCurrentPage(1)
+     setCondition('small')
    }
 
    const oceaniaRegion = () => {
@@ -53,17 +58,18 @@ data,
     })
      setCountry(newCountry)
      setCurrentPage(1)
+     setCondition('oceania')
    }
      
     return (
         <div className='h-[45px] bg-[#374151] rounded-t-lg flex justify-between items-center px-10'>
         <div className='flex '>
-        <div className='bg-gray-800 border-[2px] border-gray-600 rounded-lg py-1 px-2 me-2 font-medium text-gray-400 cursor-pointer hover:text-gray-200 duration-1000 hover:bg-gray-700' onClick={sortA}>A - Z</div>
-         <div className='bg-gray-800 border-[2px] border-gray-600 rounded-lg py-1 px-2 me-2 font-medium text-gray-400 cursor-pointer hover:text-gray-200 duration-1000 ms-2 hover:bg-gray-700' onClick={sortB}>Z - A</div> 
+        <div className={`${condition == 'asc' ? 'bg-gray-400 text-gray-900 font-bold' : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-gray-200'} border-[2px] border-gray-600 rounded-lg py-1 px-2 me-2 font-medium  cursor-pointer  duration-1000 `} onClick={sortA}>A - Z</div>
+         <div className={`${condition == 'desc' ? 'bg-gray-400 text-gray-900 font-bold' : 'bg-gray-800 text-gray-400 hover:text-gray-200 hover:bg-gray-700'} border-[2px] border-gray-600 rounded-lg py-1 px-2 me-2 font-medium  cursor-pointer  duration-1000 `} onClick={sortB}>Z - A</div> 
         </div>
           <div className='flex'>
-          <div className='bg-gray-800 border-[2px] border-gray-600 rounded-lg py-1 px-2 me-2 font-medium text-gray-400 cursor-pointer hover:text-gray-200 duration-1000 hover:bg-gray-700' onClick={smallerThanLit}>Smaller than Lithuania</div>
-         <div className='bg-gray-800 border-[2px] border-gray-600 rounded-lg py-1 px-2 me-2 font-medium text-gray-400 cursor-pointer hover:text-gray-200 duration-1000 ms-2 hover:bg-gray-700' onClick={oceaniaRegion}>Oceania</div>
+          <div className={`${condition == 'small' ? 'bg-gray-400 text-gray-900 font-bold' : 'bg-gray-800 text-gray-400 hover:text-gray-200 hover:bg-gray-700'} border-[2px] border-gray-600 rounded-lg py-1 px-2 me-2 font-medium  cursor-pointer  duration-1000 `} onClick={smallerThanLit}>Smaller than Lithuania</div>
+         <div className={`${condition == 'oceania' ? 'bg-gray-400 text-gray-900 font-bold' : 'bg-gray-800 text-gray-400 hover:text-gray-200 hover:bg-gray-700'} border-[2px] border-gray-600 rounded-lg py-1 px-2 me-2 font-medium  cursor-pointer duration-1000 `} onClick={oceaniaRegion}>Oceania</div>
           </div>
       </div>
     )

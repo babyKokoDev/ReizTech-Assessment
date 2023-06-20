@@ -57,7 +57,7 @@ const Tablebottom: React.FC<Props> = ({
                             <li key={index}>
                             <a
                                 href="#"
-                                className={`px-[7.5px] py-2 leading-tight border bg-gray-800 border-gray-500 text-gray-400  hover:bg-gray-700 hover:text-white text-[14.5px] duration-500 ${currentPage == pgNumber ? 'bg-gray-600 text-white' : ''}`}
+                                className={`px-[7.5px] py-[9px] leading-tight border bg-gray-800 border-gray-500 text-gray-400  hover:bg-gray-700 hover:text-white text-[14.5px] duration-500 ${currentPage == pgNumber ? 'bg-gray-500 text-white' : ''}`}
                                 onClick={()=>setCurrentPage(pgNumber)}
                                 >
                                 {pgNumber}
